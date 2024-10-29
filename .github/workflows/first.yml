@@ -11,6 +11,9 @@ jobs:
 
             - name: List Files
               run: ls
+
+            - name: Print envs
+              run: printenv
               
             - name: Read Readme
               run: cat README.md
