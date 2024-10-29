@@ -9,11 +9,11 @@ jobs:
             - name: Welcome message
               run: echo 'My First Github Actions Job'
 
+            - name: Read Readme
+              run: cat README.md
+            
             - name: List Files
               run: ls
 
             - name: Print envs
               run: printenv
-              
-            - name: Read Readme
-              run: cat README.md
