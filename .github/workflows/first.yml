@@ -22,3 +22,8 @@ jobs:
 
             - name: Print envs
               run: printenv
+
+            - name: Perform multiple actions
+              run: |
+                echo 'Running multiple commands'
+                ls -a
