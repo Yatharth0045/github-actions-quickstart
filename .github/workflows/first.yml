@@ -9,6 +9,11 @@ jobs:
             - name: Welcome message
               run: echo 'My First Github Actions Job'
 
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+              with:
+                repository: ${{ github.repository }}
+
             - name: Read Readme
               run: cat README.md
             
