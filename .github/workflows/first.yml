@@ -37,4 +37,6 @@ jobs:
                 cat drag.txt
             
             - name: Execute shell script
-              run: ./cowsay-script.sh
+              run: |
+                chmod +x cowsay-script.sh
+                ./cowsay-script.sh
