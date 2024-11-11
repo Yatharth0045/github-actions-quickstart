@@ -41,6 +41,12 @@ jobs:
                 chmod +x cowsay-script.sh
                 ./cowsay-script.sh
 
+            - name: Upload files
+              uses: actions/upload-artifact@v4.4.3
+              with:
+                name: dragon
+                path: drag.txt
+
     second_job:
         runs-on:  ubuntu-latest
         needs: 
@@ -49,7 +55,13 @@ jobs:
             - name: Welcome message
               run: echo 'My Second Github Actions Job'
 
+            - name: Download a Build Artifact
+              uses: actions/download-artifact@v4.1.8
+              with:
+                name: dragon
+                path: dragon.txt
+          
             - name: Check cowsay
               run: |
                 ls -la
-                cat drag.txt
+                cat dragon.txt
