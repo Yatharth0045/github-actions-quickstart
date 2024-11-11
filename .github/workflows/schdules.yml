@@ -3,14 +3,20 @@ name: Scheduled Workflow
 on: 
     workflow_dispatch:
     schedule:
-        - cron: "17 15 11 * *"
+        - cron: "47 16 11 * *"
 
 jobs:
     job_A:
         runs-on:  ubuntu-latest
+        concurrency:
+            group: job_a
+            cancel-in-progress: true
         steps:
             - name: Welcome message
               run: echo 'My First Scheduled Github Actions Job'
 
             - name: Check date and time
               run: date
+
+            - name: Increase pipeline time
+              run: sleep 600
