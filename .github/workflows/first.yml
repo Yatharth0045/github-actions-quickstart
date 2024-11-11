@@ -35,3 +35,6 @@ jobs:
               run: |
                 cowsay -f dragon "Hello Yatharth!!" >> drag.txt
                 cat drag.txt
+            
+            - name: Execute shell script
+              run: ./cowsay-script.sh
