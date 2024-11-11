@@ -19,7 +19,7 @@ jobs:
         runs-on:  ${{ matrix.os }}
         timeout-minutes: 2
         concurrency:
-            group: job_a
+            group: ${{ matrix.os }}-${{ matrix.message }}
             cancel-in-progress: true
         steps:
             - name: Welcome message
