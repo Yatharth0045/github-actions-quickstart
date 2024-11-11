@@ -93,7 +93,7 @@ jobs:
           run: ${{ env.TOOL }} build -t ${{ env.CONTAINER_REGISTRY }}/${{ env.DOCKER_REPOSITORY_NAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} .
 
         - name: Login Docker
-          run: ${{ env.TOOL }} login --username=${{ env.DOCKER_USERNAME }} --password=${{  secrets.DOCKER_PASSWORD }}
+          run: ${{ env.TOOL }} login --username=${{ vars.DOCKER_USERNAME }} --password=${{  secrets.DOCKER_PASSWORD }}
 
         - name: Docker Publish
           env:
