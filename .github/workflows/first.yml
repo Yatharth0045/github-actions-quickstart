@@ -90,7 +90,7 @@ jobs:
         - name: Build Docker
           env:
             DOCKER_TASK: build
-          run: ${{ env.TOOL }} build -t ${{ env.CONTAINER_REGISTRY }}/${{ env.DOCKER_REPOSITORY_NAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
+          run: ${{ env.TOOL }} build -t ${{ env.CONTAINER_REGISTRY }}/${{ env.DOCKER_REPOSITORY_NAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} .
 
         - name: Login Docker
           env:
