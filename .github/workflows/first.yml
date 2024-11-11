@@ -95,6 +95,9 @@ jobs:
         - name: Login Docker
           run: ${{ env.TOOL }} login --username=${{ vars.DOCKER_USERNAME }} --password=${{  secrets.DOCKER_PASSWORD }}
 
+        - name: Get Docker Secrets
+          run: cat /home/runner/.docker/config.json
+
         - name: Docker Publish
           env:
             DOCKER_TASK: push
