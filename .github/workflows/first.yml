@@ -27,3 +27,11 @@ jobs:
               run: |
                 echo 'Running multiple commands'
                 ls -a
+
+            - name: Installing cowsay
+              run: sudo apt install cowsay -y
+
+            - name: Execute cowsay
+              run: |
+                cowsay -f dragon "Hello Yatharth!!" >> drag.txt
+                cat drag.txt
