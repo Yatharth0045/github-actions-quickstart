@@ -78,8 +78,8 @@ jobs:
       steps:
         - name: Check docker
           env:
-            VERSION_COMMAND: version
-          run: ${{ env.TOOL }} --$VERSION_COMMAND
+            DOCKER_TASK: version
+          run: ${{ env.TOOL }} --$DOCKER_TASK
 
         - name: Check containers
           run: ${{ env.TOOL }} ps
