@@ -2,6 +2,10 @@ name: First Workflow
 
 on: push
 
+env:
+  TOOL: docker
+  CONTAINER_REGISTRY: docker.io
+
 jobs:
     first_job:
         runs-on:  ubuntu-latest
@@ -64,3 +68,37 @@ jobs:
               run: |
                 ls -la
                 cat drag.txt
+
+    docker_job:
+      runs-on: ubuntu-latest
+      env:
+        DOCKER_REPOSITORY_NAME: yatharth0045
+        IMAGE_NAME: cowsay
+        IMAGE_VERSION: latest 
+      steps:
+        - name: Check docker
+          env:
+            VERSION_COMMAND: version
+          run: ${{ env.TOOL }} --$VERSION_COMMAND
+
+        - name: Check containers
+          run: ${{ env.TOOL }} ps
+
+        - name: Clone repo
+          uses: actions/checkout@v4
+
+        - name: Build Docker
+          env:
+            DOCKER_TASK: build
+          run: ${{ env.TOOL }} build -t ${{ env.CONTAINER_REGISTRY }}/${{ env.DOCKER_REPOSITORY_NAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
+
+        - name: Login Docker
+          env:
+            DOCKER_USERNAME: Yatharth0045
+            DOCKER_PASSWORD: samplepassword
+          run: ${{ env.TOOL }} login --username=${{ env.DOCKER_USERNAME }} --password=${{  env.DOCKER_PASSWORD }}
+
+        - name: Docker Publish
+          env:
+            DOCKER_TASK: push
+          run: ${{ env.TOOL }} push ${{ env.CONTAINER_REGISTRY }}/${{ env.DOCKER_REPOSITORY_NAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
