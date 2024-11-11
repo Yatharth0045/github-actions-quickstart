@@ -8,6 +8,7 @@ on:
 jobs:
     job_A:
         runs-on:  ubuntu-latest
+        timeout-minutes: 2
         concurrency:
             group: job_a
             cancel-in-progress: true
@@ -19,4 +20,9 @@ jobs:
               run: date
 
             - name: Increase pipeline time
-              run: sleep 600
+              timeout-minutes: 1
+              run: sleep 20
+
+            - name: Increase pipeline time again
+              timeout-minutes: 1
+              run: sleep 200
