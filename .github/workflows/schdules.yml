@@ -1,0 +1,15 @@
+name: First Workflow
+
+on: 
+    schedule:
+        - cron: "15 15 11 * *"
+
+jobs:
+    first_job:
+        runs-on:  ubuntu-latest
+        steps:
+            - name: Welcome message
+              run: echo 'My First Scheduled Github Actions Job'
+
+            - name: Check date and time
+              run: date
