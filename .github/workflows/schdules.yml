@@ -1,11 +1,12 @@
 name: Scheduled Workflow
 
 on: 
+    workflow_dispatch:
     schedule:
         - cron: "17 15 11 * *"
 
 jobs:
-    first_job:
+    job_A:
         runs-on:  ubuntu-latest
         steps:
             - name: Welcome message
