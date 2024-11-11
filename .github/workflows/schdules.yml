@@ -9,6 +9,8 @@ on:
 jobs:
     job_A:
         strategy:
+            fail-fast: false
+            max-parallel: 2
             matrix:
                 os:
                     - ubuntu-latest
@@ -16,6 +18,12 @@ jobs:
                 message: 
                     - first
                     - second 
+                exclude: 
+                    - os: ubuntu-latest
+                      message: second
+                include: 
+                    - os: ubuntu-latest
+                      message: third
         runs-on:  ${{ matrix.os }}
         timeout-minutes: 2
         concurrency:
