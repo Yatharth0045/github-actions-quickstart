@@ -40,3 +40,14 @@ jobs:
               run: |
                 chmod +x cowsay-script.sh
                 ./cowsay-script.sh
+
+    second_job:
+        runs-on:  ubuntu-latest
+        steps:
+            - name: Welcome message
+              run: echo 'My Second Github Actions Job'
+
+            - name: Check cowsay
+              run: |
+                ls -la
+                cat drag.txt
