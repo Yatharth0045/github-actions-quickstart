@@ -64,7 +64,6 @@ jobs:
                 path: drag.txt
 
     second_job:
-        if: github.ref != 'refs/heads/main'
         runs-on:  ubuntu-latest
         needs: 
           - first_job
@@ -132,7 +131,6 @@ jobs:
                   AWS_ACCOUNT_ID='1234'
                 fi
                 echo "AWS_ACCOUNT_ID=$AWS_ACCOUNT_ID" >> $GITHUB_ENV
-                printenv
                 echo "Running Terraform apply for env: ${{env.ENVIRONMENT}} with account id: $AWS_ACCOUNT_ID"
 
             - name: Dump Env
@@ -145,5 +143,3 @@ jobs:
                 echo "Running Terraform apply for env: ${{ inputs.environment }} with account id: ${{ env.AWS_ACCOUNT_ID }}"
                 echo "Running Terraform apply for env: ${{ inputs.environment }} with account id: $AWS_ACCOUNT_ID:Completed"
                 echo "=========="
-                printenv
-
