@@ -47,12 +47,12 @@ jobs:
             - name: Dump strategy context
               env:
                 STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-              run: echo ${{ env.STRATEGY_CONTEXT }}
+              run: echo $STRATEGY_CONTEXT
 
             - name: Dump matrix context
               env:
                 MATRIX_CONTEXT: ${{ toJson(matrix) }}
-              run: echo ${{ env.MATRIX_CONTEXT }}
+              run: echo $MATRIX_CONTEXT
 
     context_testing:
         runs-on: ubuntu-latest
@@ -65,14 +65,14 @@ jobs:
             - name: Dump job context
               env:
                 JOB_CONTEXT: ${{ toJson(job) }}
-              run: echo ${{ env.JOB_CONTEXT }}
+              run: echo $JOB_CONTEXT
 
             - name: Dump steps context
               env:
                 STEPS_CONTEXT: ${{ toJson(steps) }}
-              run: echo ${{ env.STEPS_CONTEXT }}
+              run: echo $STEPS_CONTEXT
 
             - name: Dump runner context
               env:
                 RUNNER_CONTEXT: ${{ toJson(runner) }}
-              run: echo ${{ env.RUNNER_CONTEXT }}
+              run: echo $RUNNER_CONTEXT
