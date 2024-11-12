@@ -3,6 +3,15 @@ name: First Workflow
 on: 
   # push
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select Environment'
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
 
 env:
   TOOL: docker
@@ -104,3 +113,19 @@ jobs:
           env:
             DOCKER_TASK: push
           run: ${{ env.TOOL }} push ${{ env.CONTAINER_REGISTRY }}/${{ env.DOCKER_REPOSITORY_NAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
+
+    dynamic_env_job:
+        runs-on:  ubuntu-latest
+        steps:
+            - name: Setting up ENV
+              env: 
+                ENVIRONMENT: ${{ inputs.environment }}
+              run: | 
+                if [ ${{ env.ENVIRONMENT }} == "dev" ]; then
+                  echo "AWS_ACCOUNT_ID='XX_DEV'" >> $GITHUB_ENV
+                elif [ ${{ env.ENVIRONMENT }} == "staging" ]; then
+                  echo "AWS_ACCOUNT_ID='XX_STAG'" >> $GITHUB_ENV
+                elif [ ${{ env.ENVIRONMENT }} == "prod" ]; then
+                  echo "AWS_ACCOUNT_ID='XX_PROD'" >> $GITHUB_ENV
+                fi
+                echo "Running Terraform apply for env: ${{env.ENVIRONMENT}} with account id: ${{env.AWS_ACCOUNT_ID}}"
