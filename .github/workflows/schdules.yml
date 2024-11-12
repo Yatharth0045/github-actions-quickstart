@@ -43,3 +43,36 @@ jobs:
             - name: Increase pipeline time again
               timeout-minutes: 1
               run: sleep 20
+
+            - name: Dump strategy context
+              env:
+                STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+              run: echo ${{ env.STRATEGY_CONTEXT }}
+
+            - name: Dump matrix context
+              env:
+                MATRIX_CONTEXT: ${{ toJson(matrix) }}
+              run: echo ${{ env.MATRIX_CONTEXT }}
+
+    context_testing:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Dump Github context
+              env: 
+                GITHUB_CONTEXT: ${{ toJson(github) }}
+              run: echo ${{ env.GITHUB_CONTEXT }}
+
+            - name: Dump job context
+              env:
+                JOB_CONTEXT: ${{ toJson(job) }}
+              run: echo ${{ env.JOB_CONTEXT }}
+
+            - name: Dump steps context
+              env:
+                STEPS_CONTEXT: ${{ toJson(steps) }}
+              run: echo ${{ env.STEPS_CONTEXT }}
+
+            - name: Dump runner context
+              env:
+                RUNNER_CONTEXT: ${{ toJson(runner) }}
+              run: echo ${{ env.RUNNER_CONTEXT }}
