@@ -128,9 +128,13 @@ jobs:
                 elif [ ${{ env.ENVIRONMENT }} == "prod" ]; then
                   echo "AWS_ACCOUNT_ID='XX_PROD'" >> $GITHUB_ENV
                 fi
-                echo "Running Terraform apply for env: ${{env.ENVIRONMENT}} with account id: ${{env.AWS_ACCOUNT_ID}}"
+                echo "Running Terraform apply for env: ${{env.ENVIRONMENT}} with account id: $AWS_ACCOUNT_ID"
 
             - name: Dump Env
               env: 
                 ENV_CONFIG: ${{ toJson(env) }}
-              run: echo "$ENV_CONFIG"
+              run: |
+                echo "$ENV_CONFIG"
+                echo "=========="
+                printenv
+
