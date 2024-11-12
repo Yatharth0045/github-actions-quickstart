@@ -140,6 +140,7 @@ jobs:
                 echo "=========="
                 echo "Running Terraform apply for env: ${{ inputs.environment }} with account id: $AWS_ACCOUNT_ID"
                 echo "Running Terraform apply for env: ${{ inputs.environment }} with account id: ${{ env.AWS_ACCOUNT_ID }}"
+                echo "Running Terraform apply for env: ${{ inputs.environment }} with account id: $AWS_ACCOUNT_ID:Completed"
                 echo "=========="
                 printenv
 
