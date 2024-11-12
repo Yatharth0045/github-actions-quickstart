@@ -122,12 +122,13 @@ jobs:
                 ENVIRONMENT: ${{ inputs.environment }}
               run: | 
                 if [ ${{ env.ENVIRONMENT }} == "dev" ]; then
-                  echo "AWS_ACCOUNT_ID=0123" >> $GITHUB_ENV
+                  AWS_ACCOUNT_ID='0123'
                 elif [ ${{ env.ENVIRONMENT }} == "staging" ]; then
-                  echo "AWS_ACCOUNT_ID='0246'" >> $GITHUB_ENV
+                  AWS_ACCOUNT_ID='0246'
                 elif [ ${{ env.ENVIRONMENT }} == "prod" ]; then
-                  echo "AWS_ACCOUNT_ID=1234" >> $GITHUB_ENV
+                  AWS_ACCOUNT_ID='1234'
                 fi
+                echo "AWS_ACCOUNT_ID=$AWS_ACCOUNT_ID" >> $GITHUB_ENV
                 printenv
                 echo "Running Terraform apply for env: ${{env.ENVIRONMENT}} with account id: $AWS_ACCOUNT_ID"
 
