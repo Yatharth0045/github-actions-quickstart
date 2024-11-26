@@ -10,3 +10,13 @@ Sample branch added 'test-branch'
 [skip actions]
 [actions skip]
 ```
+
+## adding another commit as follows
+```
+commit-message
+
+
+skip-checks:true
+## or
+skip-checks: true
+```
