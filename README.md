@@ -20,3 +20,5 @@ skip-checks:true
 ## or
 skip-checks: true
 ```
+
+- commit failed
