@@ -22,3 +22,13 @@ skip-checks: true
 ```
 
 - commit failed
+Commit message command to be used
+```
+git commit --cleanup=verbatim --message '''
+This is my commit message
+
+
+skip-checks:true
+'''
+```
+
