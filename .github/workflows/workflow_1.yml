@@ -1,0 +1,25 @@
+name: first_workflow
+
+on: push
+
+jobs:
+    job_A:
+        name: Job A
+        runs-on: ubuntu-latest
+        steps:
+            - name: Running a command
+              run: echo "Hello, World!"
+
+            - name: Check OS configuration
+              run: |
+                echo "OS Name: ${{ runner.os }}"
+                uname -a
+
+            - name: List files
+              run: |
+                echo "Listing files in the current directory:"
+                ls -a
+                echo "Listing files in the home directory:"
+                ls -a ~
+                echo "Listing files in the root directory:"
+                ls -a /

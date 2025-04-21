@@ -1,6 +1,15 @@
 ## Github Actions Sample Repo
 
-Sample branch added 'test-branch'
+Added quickstart action yamls to start github actions
+
+## Github Workflows
+
+1. first_workflow
+    - workflow
+    - jobs
+    - steps
+
+2. 
 
 ## Ading commit message as following
 ```

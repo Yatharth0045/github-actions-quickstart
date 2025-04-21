@@ -1,23 +1,23 @@
 name: First Workflow
 
 on: 
-  push:
-    # branches-ignore:
-    #   - feature/*
-    #   - feature/**
-    branches: 
-      - main
-      - '!feature/*'
-  pull_request:
-    # activity types
-    types:
-      - review_requested
-      - ready_for_review
-    # filters
-    paths-ignore:
-      - README.md
-    branches:
-      - main
+  # push:
+  #   branches-ignore:
+  #     - feature/*
+  #     - feature/**
+  #   branches: 
+  #     - main
+  #     - '!feature/*'
+  # pull_request:
+  #   # activity types
+  #   types:
+  #     - review_requested
+  #     - ready_for_review
+  #   # filters
+  #   paths-ignore:
+  #     - README.md
+  #   branches:
+  #     - main
 
   workflow_dispatch:
     inputs:
