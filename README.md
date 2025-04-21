@@ -9,7 +9,11 @@ Added quickstart action yamls to start github actions
     - jobs
     - steps
 
-2. 
+2. second_workflow
+    - clone the repo
+    - read repo files
+
+
 
 ## Ading commit message as following
 ```
