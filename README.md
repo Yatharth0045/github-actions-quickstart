@@ -23,6 +23,7 @@ Added quickstart action yamls to start github actions
 
 4. fourth_workflow
     - sharing artifacts among jobs
+    ![storing artifact](resources/image3.png)
 
 ## Ading commit message as following
 ```
