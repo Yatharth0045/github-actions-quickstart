@@ -25,6 +25,9 @@ Added quickstart action yamls to start github actions
     - sharing artifacts among jobs  
     ![storing artifact](resources/image3.png)
 
+5. fifth_workflow
+    - using variables and secrets
+
 ## Ading commit message as following
 ```
 [skip ci]

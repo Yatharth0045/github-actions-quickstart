@@ -1,0 +1,23 @@
+name: fifth_workflow
+
+on: push
+
+env:
+    OWNER_NAME: ${{ github.event.repository.owner.login }}
+    WORKFLOW_NAME: ${{ github.workflow }}
+
+jobs:
+    job_A:
+        name: Job A
+        runs-on: ubuntu-latest
+        env: 
+            JOB_NAME: job_A
+        steps:
+            - name: Print environment variables
+              env: 
+                STEP_NAME: print_env
+              run: |
+                echo "Workflow name: ${{ env.WORKFLOW_NAME }}"
+                echo "Owner name: ${{ env.OWNER_NAME }}"
+                echo "Job name: ${{ env.JOB_NAME }}"
+                echo "Step name: ${{ env.STEP_NAME }}"
