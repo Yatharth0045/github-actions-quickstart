@@ -21,3 +21,9 @@ jobs:
                 echo "Owner name: ${{ env.OWNER_NAME }}"
                 echo "Job name: ${{ env.JOB_NAME }}"
                 echo "Step name: ${{ env.STEP_NAME }}"
+
+            - name: Print all envs
+              env: 
+                STEP_NAME: print_all_env
+              run: |
+                printenv
