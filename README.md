@@ -39,6 +39,10 @@ Added quickstart action yamls to start github actions
 
 8. eighth_workflow
     - matrix configuration
+        - include
+        - exclude
+        - fail-fast
+        - max-parallel
 
 ## Ading commit message as following
 ```
