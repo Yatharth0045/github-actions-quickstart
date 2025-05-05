@@ -35,6 +35,7 @@ Added quickstart action yamls to start github actions
 
 7. seventh_workflow
     - job concurrency
+    - configure job timeouts
 
 ## Ading commit message as following
 ```

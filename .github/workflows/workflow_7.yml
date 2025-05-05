@@ -14,6 +14,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Long running job
+              timeout-minutes: 1
               run: |
                 echo "Job A is running"
-                sleep 30s
+                sleep 300s
