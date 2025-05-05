@@ -4,7 +4,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-  - cron: "*/10 18 * * *"
+  - cron: "*/5 * * * *"
 
 jobs:
     job_A:
@@ -13,5 +13,6 @@ jobs:
         steps:
             - name: Triggering a job
               run: |
+                date
                 echo "Job A is running"
                 echo "This job is triggered by a ${{ github.event_name }} event"
