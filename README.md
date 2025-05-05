@@ -19,6 +19,7 @@ Added quickstart action yamls to start github actions
     - run jobs in parallel
     ![jobs parallel and sequential](resources/image1.png)
     - job skip if dependent job fails
+    ![job skip](resources/image2.png)
 
 ## Ading commit message as following
 ```
