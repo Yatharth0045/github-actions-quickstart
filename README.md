@@ -17,6 +17,8 @@ Added quickstart action yamls to start github actions
 3. third_workflow
     - run multiple jobs
     - run jobs in parallel
+    ![jobs parallel and sequential](resources/image1.png)
+    - job skip if dependent job fails
 
 ## Ading commit message as following
 ```

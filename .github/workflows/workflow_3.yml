@@ -41,6 +41,22 @@ jobs:
 
     job_C:
         name: Job C
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone repository
+              uses: actions/checkout@v4
+
+            - name: Read Readme
+              run: |
+                ls -a
+                cat README.md
+
+            - name: Run cowsay without installation
+              run: |
+                cowsay -f tux "Hello from Job C"
+
+    job_D:
+        name: Job D
         needs: 
           - job_A
           - job_B
@@ -58,4 +74,25 @@ jobs:
               run: |
                 sudo apt-get install -y cowsay
                 cowsay --version
-                cowsay -f ghostbusters "Hello from Job C"
+                cowsay -f ghostbusters "Hello from Job D"
+
+    job_E:
+        name: Job E
+        needs: 
+          - job_A
+          - job_C
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone repository
+              uses: actions/checkout@v4
+
+            - name: Read Readme
+              run: |
+                ls -a
+                cat README.md
+
+            - name: Run cowsay
+              run: |
+                sudo apt-get install -y cowsay
+                cowsay --version
+                cowsay -f ghostbusters "Hello from Job E"
