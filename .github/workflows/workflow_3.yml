@@ -1,4 +1,4 @@
-name: second_workflow
+name: third_workflow
 
 on: push
 
@@ -20,3 +20,42 @@ jobs:
                 sudo apt-get install -y cowsay
                 cowsay --version
                 cowsay -f dragon "Hello from Job A"
+
+    job_B:
+        name: Job B
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone repository
+              uses: actions/checkout@v4
+
+            - name: Read Readme
+              run: |
+                ls -a
+                cat README.md
+
+            - name: Run cowsay
+              run: |
+                sudo apt-get install -y cowsay
+                cowsay --version
+                cowsay -f tux "Hello from Job B"
+
+    job_C:
+        name: Job C
+        needs: 
+          - job_A
+          - job_B
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone repository
+              uses: actions/checkout@v4
+
+            - name: Read Readme
+              run: |
+                ls -a
+                cat README.md
+
+            - name: Run cowsay
+              run: |
+                sudo apt-get install -y cowsay
+                cowsay --version
+                cowsay -f ghostbusters "Hello from Job C"
