@@ -12,6 +12,7 @@ Added quickstart action yamls to start github actions
 2. second_workflow
     - clone the repo
     - read repo files
+    - install and run a program (cowsay)
 
 
 

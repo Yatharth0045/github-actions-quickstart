@@ -14,3 +14,9 @@ jobs:
               run: |
                 ls -a
                 cat README.md
+
+            - name: Run cowsay
+              run: |
+                sudo apt-get install -y cowsay
+                cowsay --version
+                cowsay -f dragon "Hello from Job A"
