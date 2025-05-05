@@ -27,6 +27,7 @@ Added quickstart action yamls to start github actions
 
 5. fifth_workflow
     - using variables and secrets
+    ![print envs](resources/image4.png)
 
 ## Ading commit message as following
 ```
