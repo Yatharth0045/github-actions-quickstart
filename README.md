@@ -33,6 +33,9 @@ Added quickstart action yamls to start github actions
     - workflow trigger options
     - [all-available-options](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows)
 
+7. seventh_workflow
+    - job concurrency
+
 ## Ading commit message as following
 ```
 [skip ci]
