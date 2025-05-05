@@ -20,3 +20,5 @@ jobs:
               run: |
                 cat /etc/os-release
                 echo "OS version: ${{ runner.os }}"
+                echo "OS architecture: ${{ runner.arch }}"
+                echo "OS name: ${{ runner.name }}"
