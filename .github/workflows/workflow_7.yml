@@ -16,4 +16,4 @@ jobs:
             - name: Long running job
               run: |
                 echo "Job A is running"
-                sleep 600s
+                sleep 30s
