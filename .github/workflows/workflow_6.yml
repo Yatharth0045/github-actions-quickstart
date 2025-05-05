@@ -1,6 +1,10 @@
 name: sixth_workflow
 
-on: push
+on: 
+  push:
+  workflow_dispatch:
+  schedule:
+  - cron: "6 6 * * *"
 
 jobs:
     job_A:
