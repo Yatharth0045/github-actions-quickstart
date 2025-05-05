@@ -21,6 +21,9 @@ Added quickstart action yamls to start github actions
     - job skip if dependent job fails
     ![job skip](resources/image2.png)
 
+4. fourth_workflow
+    - sharing artifacts among jobs
+
 ## Ading commit message as following
 ```
 [skip ci]

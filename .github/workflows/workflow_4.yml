@@ -1,0 +1,33 @@
+name: fourth_workflow
+
+on: push
+
+jobs:
+    job_A:
+        name: Job A
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run cowsay
+              run: |
+                sudo apt-get install -y cowsay
+                cowsay --version
+                cowsay -f dragon "Hello from Job A" > dragon.txt
+            
+            - uses: actions/upload-artifact@v4
+              with:
+                name: dragon_artifact
+                path: dragon.txt
+
+    job_B:
+        name: Job B
+        runs-on: ubuntu-latest
+        needs: job_A
+        steps:
+            - uses: actions/download-artifact@v4
+              with:
+                name: dragon_artifact
+
+            - name: Check dragon file
+              run: |
+                ls -a
+                cat dragon.txt
