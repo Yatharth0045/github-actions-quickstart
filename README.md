@@ -14,7 +14,9 @@ Added quickstart action yamls to start github actions
     - read repo files
     - install and run a program (cowsay)
 
-
+3. third_workflow
+    - run multiple jobs
+    - run jobs in parallel
 
 ## Ading commit message as following
 ```
