@@ -29,6 +29,9 @@ Added quickstart action yamls to start github actions
     - using variables and secrets
     ![print envs](resources/image4.png)
 
+6. sixth_workflow
+    - workflow trigger options
+
 ## Ading commit message as following
 ```
 [skip ci]

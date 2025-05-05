@@ -1,0 +1,13 @@
+name: sixth_workflow
+
+on: push
+
+jobs:
+    job_A:
+        name: Job A
+        runs-on: ubuntu-latest
+        steps:
+            - name: Triggering a job
+              run: |
+                echo "Job A is running"
+                echo "This job is triggered by a ${{ github.event_name }} event"
