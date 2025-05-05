@@ -37,6 +37,9 @@ Added quickstart action yamls to start github actions
     - job concurrency
     - configure job timeouts
 
+8. eighth_workflow
+    - matrix configuration
+
 ## Ading commit message as following
 ```
 [skip ci]

@@ -1,0 +1,22 @@
+name: eighth_workflow
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+on:
+  push:
+
+jobs:
+    job_A:
+        name: Job A
+        strategy:
+          fail-fast: false
+          matrix:
+            os: [ubuntu-latest, ubuntu-22.04]
+        runs-on: ${{ matrix.os }}
+        steps:
+            - name: Get system information
+              run: |
+                cat /etc/os-release
+                echo "OS version: ${{ runner.os }}"
