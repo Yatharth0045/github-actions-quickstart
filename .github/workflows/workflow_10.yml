@@ -1,0 +1,24 @@
+name: tenth_workflow
+
+on:
+  push:
+
+jobs:
+  job_A:
+    name: Job A
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build project
+        run: |
+          echo "Building project..."
+          echo "Building project against ${{ github.ref }} branch"
+          sleep 5
+          echo "Build completed."
+      
+      - name: Deploy project
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Deploying project..."
+          echo "Branch name is ${{ github.ref }}"
+          sleep 5
+          echo "Deployment completed."
