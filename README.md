@@ -44,6 +44,10 @@ Added quickstart action yamls to start github actions
         - fail-fast
         - max-parallel
 
+9. ninth_workflow
+    - workflow contexts
+    - [all-available-contexts](https://docs.github.com/en/enterprise-cloud@latest/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs)
+
 ## Ading commit message as following
 ```
 [skip ci]
