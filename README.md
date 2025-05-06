@@ -53,8 +53,9 @@ Added quickstart action yamls to start github actions
 10. tenth_workflow
     - if expression
 
-## Ading commit message as following
+11. To skip ci
 ```
+## Add any message as commit message
 [skip ci]
 [ci skip]
 [no ci]
@@ -62,8 +63,9 @@ Added quickstart action yamls to start github actions
 [actions skip]
 ```
 
-## adding another commit as follows
+
 ```
+## Add message as well with skip ci
 commit-message
 
 
@@ -72,8 +74,7 @@ skip-checks:true
 skip-checks: true
 ```
 
-- commit failed
-Commit message command to be used
+- Commit message command to be used
 ```
 git commit --cleanup=verbatim --message '''
 This is my commit message
