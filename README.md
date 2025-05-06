@@ -31,6 +31,8 @@ Added quickstart action yamls to start github actions
 
 6. sixth_workflow
     - workflow trigger options
+        - event filters
+        - activity types
     - [all-available-options](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows)
 
 7. seventh_workflow
