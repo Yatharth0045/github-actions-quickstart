@@ -3,9 +3,10 @@
 Added quickstart action yamls to start github actions
 
 ## How to use
-1. Move the workflow `yml` from `.github/archives` to  `.github/workflows`
-2. Commit and push
-3. Check github actions for pipeline.
+1. Make `workflows` directory under `.github`
+2. Move the workflow `yml` from `.github/archives` to  `.github/workflows`
+3. Commit and push
+4. Check github actions for pipeline.
 
 ## Github Workflows
 
