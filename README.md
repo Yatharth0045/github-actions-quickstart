@@ -26,7 +26,7 @@ Added quickstart action yamls to start github actions
     ![storing artifact](resources/image3.png)
 
 5. fifth_workflow
-    - using variables and secrets
+    - using variables and secrets  
     ![print envs](resources/image4.png)
 
 6. sixth_workflow
