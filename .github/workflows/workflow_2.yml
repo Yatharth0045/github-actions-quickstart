@@ -1,4 +1,4 @@
-name: third_workflow
+name: second_workflow
 
 on: push
 
@@ -12,6 +12,7 @@ jobs:
 
             - name: Read Readme
               run: |
+                pwd
                 ls -a
                 cat README.md
 
@@ -20,3 +21,5 @@ jobs:
                 sudo apt-get install -y cowsay
                 cowsay --version
                 cowsay -f dragon "Hello from Job A"
+
+
