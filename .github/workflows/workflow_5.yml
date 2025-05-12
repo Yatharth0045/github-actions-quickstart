@@ -35,3 +35,8 @@ jobs:
               with:
                 username: ${{ vars.DOCKER_USERNAME }}
                 password: ${{ secrets.DOCKER_PASSWORD }}
+
+            - name: Check secrets
+              run: |
+                echo "DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}"
+                echo "DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}"
