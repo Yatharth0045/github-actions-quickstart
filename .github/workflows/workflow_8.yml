@@ -52,6 +52,12 @@ jobs:
               name: node
               directory: node
               command: npm install
+          include:
+          - os: ubuntu-22.04
+            lang:
+              name: php
+              directory: php
+              command: php install
       runs-on: ${{ matrix.os }}
       steps:
           - name: Checkout code
