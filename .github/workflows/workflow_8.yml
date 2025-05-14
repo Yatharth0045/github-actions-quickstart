@@ -46,6 +46,12 @@ jobs:
           - name: python
             directory: python
             command: pip install -r requirements.txt
+          exclude:
+          - os: ubuntu-22.04
+            lang: 
+              name: node
+              directory: node
+              command: npm install
       runs-on: ${{ matrix.os }}
       steps:
           - name: Checkout code
