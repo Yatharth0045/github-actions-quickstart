@@ -8,27 +8,29 @@ on:
   push:
 
 jobs:
-    # job_A:
-    #     name: Job A
-    #     # strategy:
-    #     #   fail-fast: false
-    #     #   max-parallel: 2
-    #     #   matrix:
-    #     #     os: [ubuntu-latest, ubuntu-22.04]
-    #     #     user: [yatharth, alpha]
-    #     #     exclude:
-    #     #       - os: ubuntu-22.04
-    #     #         user: alpha
-    #     #     include:
-    #     #       - os: ubuntu-latest
-    #     #         user: beta
-    #     runs-on: ${{ matrix.os }}
-    #     steps:
-    #         - name: Get system information
-    #           run: |
-    #             cat /etc/os-release
-    #             echo "OS version: ${{ runner.os }}"
-    #             echo "OS architecture: ${{ runner.arch }}"
+    job_A:
+        name: Job A
+        strategy:
+          fail-fast: false
+          max-parallel: 2
+          matrix:
+            os: [ubuntu-latest, ubuntu-22.04]
+            user: [yatharth, alpha]
+            exclude:
+              - os: ubuntu-22.04
+                user: alpha
+            include:
+              - os: ubuntu-latest
+                user: beta
+        runs-on: ${{ matrix.os }}
+        steps:
+            - name: Get system information
+              run: |
+                cat /etc/os-release
+                echo "OS version: ${{ runner.os }}"
+                echo "OS architecture: ${{ runner.arch }}"
+                echo "${{ matrix.user }}"
+
     job_build:
       name: Build
       strategy:
@@ -69,33 +71,3 @@ jobs:
               cd ${{ matrix.lang.directory }}
               echo ${{ matrix.lang.command }}
     
-# lang [{A}, {B}, {C}]
-# os ['X', 'Y']
-
-
-
-
-    # job_Java_build:
-    #   name: java_project
-    #   runs-on: ubuntu-latest
-    #   steps:
-    #       - name: Checkout code
-    #         uses: actions/checkout@v4
-
-    #       - name: Build with Gradle
-    #         run: |
-    #           cd java
-    #           gradlew build
-
-    # job_node_deploy:
-    #   name: node_project
-    #   runs-on: ubuntu-latest
-    #   steps:
-    #       - name: Checkout code
-    #         uses: actions/checkout@v4
-
-    #       - name: Install dependencies
-    #         run: |
-    #           cd node
-    #           npm install
-
