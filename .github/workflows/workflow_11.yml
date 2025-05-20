@@ -1,0 +1,61 @@
+name: eleventh_workflow
+
+on:
+  push:
+
+jobs:
+  job_A:
+    name: Job A
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build project
+        id: build
+        run: |
+          echo "Building project..."
+          echo "Building project against ${{ github.ref }} branch"
+          sleep 5
+          echo "Build completed."
+
+      - name: Test project
+        id: test
+        run: |
+          echo "Testing project..."
+          echo "Testing project against ${{ github.ref }} branch"
+          cat test-results.xml
+          echo "Test results" > test-results.xml
+          sleep 5
+          echo "Build completed."
+
+      - name: Store Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mocha-test-results
+          path: test-results.xml
+          retention-days: 7
+
+      - name: Run AutoFix
+        id: autofix
+        if: failure()
+        run: |
+          echo "Running AutoFix..."
+          echo "AutoFix completed."
+      
+      - name: Deploy project
+        id: deploy
+        ## success() is defaultly true, no need to explicitly mention it
+        if: success() && github.ref == 'refs/heads/main'
+        run: |
+          echo "Deploying project..."
+          echo "Branch name is ${{ github.ref }}"
+          sleep 5
+          echo "Deployment completed."
+
+      - name: Deploy project on prod
+        id: deploy-prod
+        if: success() && github.ref == 'refs/heads/main'
+        run: |
+          echo "Deploying project..."
+          echo "Branch name is ${{ github.ref }}"
+          sleep 5
+          echo "Deployment completed."

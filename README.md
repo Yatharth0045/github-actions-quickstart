@@ -59,7 +59,16 @@ Added quickstart action yamls to start github actions
 10. tenth_workflow: [`workflow_10.yml`](.github/archives/workflow_10.yml)
     - if expression
 
-11. To skip ci
+11. eleventh_workflow: [`workflow_11.yml`](.github/archives/workflow_11.yml)
+    - if expression - status check functions
+        - success()
+        - failure()
+        - always()
+        - cancelled()
+
+### Manually skip CICD
+
+To skip ci
 ```
 ## Add any message as commit message
 [skip ci]
@@ -89,4 +98,3 @@ This is my commit message
 skip-checks:true
 '''
 ```
-
