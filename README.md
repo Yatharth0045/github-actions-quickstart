@@ -68,7 +68,8 @@ Added quickstart action yamls to start github actions
 
 12. twelth_workflow: [`workflow_12.yml`](.github/archives/workflow_12.yml)
     - replace tokens / placeholders
-    - create dynamic environment variables
+    - create dynamic environment variables - GITHUB_ENV
+    - set output to be used by another job - GITHUB_OUTPUT
 
 ### Manually skip CICD
 
