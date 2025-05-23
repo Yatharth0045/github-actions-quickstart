@@ -66,6 +66,10 @@ Added quickstart action yamls to start github actions
         - always()
         - cancelled()
 
+12. twelth_workflow: [`workflow_12.yml`](.github/archives/workflow_12.yml)
+    - replace tokens / placeholders
+    - create dynamic environment variables
+
 ### Manually skip CICD
 
 To skip ci

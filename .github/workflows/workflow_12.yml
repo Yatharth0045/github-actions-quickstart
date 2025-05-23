@@ -1,0 +1,34 @@
+name: twelth_workflow
+
+on:
+  push:
+
+jobs:
+  job_A:
+    name: Job A
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set dynamic environment variables
+        id: set-env
+        run: |
+          echo "NAME=$(hostname)" >> $GITHUB_ENV
+
+      - name: Check environment variables
+        id: check-env
+        run: |
+          echo "Environment variables:"
+          echo "NAME: ${{ env.NAME }}"
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Replace token in file
+        id: replace-token
+        uses: cschleiden/replace-tokens@v1
+        with:
+          tokenPrefix: '__'
+          tokenSuffix: '__'
+          files: '["files/*.txt"]'
+        env:
+          NAME: ${{ env.NAME }}
+          LOCATION: 'Delhi'

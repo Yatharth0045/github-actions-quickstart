@@ -1,0 +1,2 @@
+Welcome __NAME__, Hope you are doing fine.
+Have a pleasant stay at __LOCATION__
