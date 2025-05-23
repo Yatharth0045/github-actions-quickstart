@@ -8,7 +8,7 @@ jobs:
     name: Job A
     runs-on: ubuntu-latest
     outputs:
-      FILE_CONTENT: ${{ steps.check-replaced-file.outputs.CONTENT }}
+      A_HOST: ${{ steps.check-replaced-file.outputs.JOB_A_HOSTNAME }}
     steps:
       - name: Set dynamic environment variables
         id: set-env
@@ -40,7 +40,7 @@ jobs:
         run: |
           echo "Replaced file content:"
           cat files/*.txt
-          echo "CONTENT=$(cat files/*.txt)" >> $GITHUB_OUTPUT
+          echo "JOB_A_HOSTNAME=$(hostname)" >> $GITHUB_OUTPUT
 
   job_B:
     name: Job B
@@ -50,4 +50,5 @@ jobs:
       - name: Check replaced file content
         id: check-file-content
         run: |
-          echo "${{ needs.job_A.outputs.FILE_CONTENT }}"
+          echo "A_HOSTNAME: ${{ needs.job_A.outputs.A_HOST }}"
+          echo "B_HOSTNAME: $(hostname)"
