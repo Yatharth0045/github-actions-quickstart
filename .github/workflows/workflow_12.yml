@@ -32,3 +32,9 @@ jobs:
         env:
           NAME: ${{ env.NAME }}
           LOCATION: 'Delhi'
+
+      - name: Check replaced file
+        id: check-replaced-file
+        run: |
+          echo "Replaced file content:"
+          cat files/*.txt
